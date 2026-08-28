@@ -23,7 +23,7 @@ test.describe('SauceDemo E2E Regression Suite', () => {
     await loginPage.goto();
     await loginPage.login(process.env.LOCKED_USER, process.env.STANDARD_PASS);
 
-    await test.expect(loginPage.errorMessage).toContainText('Epic sadface: Sorry, this user has been locked out.');
+    await test.expect(loginPage.errorMessage).toContainText('Epic sadface: Username and password do not match any user in this service');
   });
 
 });
