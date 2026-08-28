@@ -4,10 +4,7 @@ class LoginPage {
     this.usernameInput = page.locator('#user-name');
     this.passwordInput = page.locator('#password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
-    this.errorMessage = page.getByRole('heading', {
-      level: 3,
-      name: 'Epic sadface: Sorry, this user has been locked out.'
-    });
+    this.errorMessage = page.locator('[data-test="error"]');
   }
 
   async goto() {
