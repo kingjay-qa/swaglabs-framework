@@ -40,7 +40,7 @@ jobs:
         run: npx playwright test
         env:
           CI: true
-          BASE_URL: https://www.saucedemo.com
+          BASE_URL: ${{ secrets.BASE_URL }}
           STANDARD_USER: ${{ secrets.STANDARD_USER }}
           LOCKED_USER: ${{ secrets.LOCKED_USER }}
           STANDARD_PASS: ${{ secrets.STANDARD_PASS }}
