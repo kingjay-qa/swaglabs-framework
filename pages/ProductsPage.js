@@ -14,9 +14,7 @@ exports.ProductsPage = class ProductsPage {
   }
 
   async verifyOnPage() {
-    // Explicitly wait for the element to be visible before asserting text
-    await this.titleSpan.waitFor({ state: 'visible', timeout: 10000 });
-    await expect(this.titleSpan).toHaveText('Products');
+    await expect(this.page.getByText('Products', { exact: true })).toBeVisible();
   }
 
   async addFirstItemToCart() {
