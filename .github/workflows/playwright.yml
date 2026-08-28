@@ -28,12 +28,10 @@ jobs:
 
       - name: Validate test configuration
         run: |
-          test -n "$BASE_URL" || (echo "BASE_URL secret is missing" >&2; exit 1)
           test -n "$STANDARD_USER" || (echo "STANDARD_USER secret is missing" >&2; exit 1)
           test -n "$LOCKED_USER" || (echo "LOCKED_USER secret is missing" >&2; exit 1)
           test -n "$STANDARD_PASS" || (echo "STANDARD_PASS secret is missing" >&2; exit 1)
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
           STANDARD_USER: ${{ secrets.STANDARD_USER }}
           LOCKED_USER: ${{ secrets.LOCKED_USER }}
           STANDARD_PASS: ${{ secrets.STANDARD_PASS }}
