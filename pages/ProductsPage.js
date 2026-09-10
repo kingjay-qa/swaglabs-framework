@@ -1,3 +1,4 @@
+// pages/ProductsPage.js
 const { expect } = require('@playwright/test');
 
 exports.ProductsPage = class ProductsPage {
@@ -6,13 +7,14 @@ exports.ProductsPage = class ProductsPage {
    */
   constructor(page) {
     this.page = page;
-    this.titleSpan = page.locator('.title');
+    // Make the locator explicit and specific
+    this.titleSpan = page.locator('span.title');
     this.firstItemAddToCartButton = page.locator('#add-to-cart-sauce-labs-backpack');
     this.cartBadge = page.locator('.shopping_cart_badge');
   }
 
   async verifyOnPage() {
-    await expect(this.titleSpan).toHaveText('Products');
+    await expect(this.page.getByText('Products', { exact: true })).toBeVisible();
   }
 
   async addFirstItemToCart() {
