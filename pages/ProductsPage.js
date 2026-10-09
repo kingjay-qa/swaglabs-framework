@@ -11,6 +11,7 @@ exports.ProductsPage = class ProductsPage {
     this.titleSpan = page.locator('span.title');
     this.firstItemAddToCartButton = page.locator('#add-to-cart-sauce-labs-backpack');
     this.cartBadge = page.locator('.shopping_cart_badge');
+    this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
   }
 
   async verifyOnPage() {
@@ -23,5 +24,9 @@ exports.ProductsPage = class ProductsPage {
 
   async verifyCartCount(expectedCount) {
     await expect(this.cartBadge).toHaveText(expectedCount);
+  }
+
+  async navigateToCart() {
+    await this.shoppingCartLink.click();
   }
 };
